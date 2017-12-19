@@ -1,0 +1,21 @@
+version: '3.2'
+
+services:
+  web:
+    image: webdevops/php-nginx:7.2
+    environment:
+      WEB_DOCUMENT_ROOT: /application/code/public
+    links:
+      - database
+    ports:
+      - 80
+    volumes:
+      - .:/application/code:rw
+  database:
+    image: postgres:10.1
+    environment:
+      POSTGRES_PASSWORD: secret_password
+    ports:
+      - 5432
+    volumes:
+      - ./database:/var/lib/mysql:rw
