@@ -4,17 +4,22 @@
   "description": "composer create-project symfony/skeleton symfony-seed",
   "main": "index.js",
   "scripts": {
+    "start": "concurrently -k \"./node_modules/.bin/encore dev --watch\" \"docker-compose up\"",
+    "stop": "docker-compose down",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@symfony/webpack-encore": "^0.17.0",
+    "concurrently": "^3.5.1",
+    "jquery": "^3.2.1",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
     "vue": "^2.5.10",
     "vue-loader": "^13.5.0",
-    "vue-template-compiler": "^2.5.10"
+    "vue-template-compiler": "^2.5.10",
+    "webpack-notifier": "^1.5.0"
   },
-  "dependencies": {
-    "jquery": "^3.2.1"
-  }
+  "dependencies": {}
 }
