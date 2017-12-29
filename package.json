@@ -4,6 +4,7 @@
   "description": "composer create-project symfony/skeleton symfony-seed",
   "main": "index.js",
   "scripts": {
+    "dependencies": "composer install && npm install",
     "start": "concurrently -k \"./node_modules/.bin/encore dev --watch\" \"docker-compose up\"",
     "stop": "docker-compose down",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,28 +1,35 @@
 version: '3.2'
 
 services:
-  web:
-    image: webdevops/php-nginx:7.2
+  database:
+    image: postgres:10.1
     environment:
-      WEB_DOCUMENT_ROOT: /application/code/public
+      POSTGRES_DB: db_name
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret_password
+      PGDATA: /var/lib/postgres/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./docker/database:/var/lib/postgresql/data
+  php:
+    build: ./docker/php
     links:
       - database
+    volumes:
+      - .:/host
+  web:
+    image: nginx:1.13.8
+    links:
+      - php
     ports:
       - 80
     volumes:
-      - .:/application/code:rw
+      - .:/host
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf
   pgadmin:
     image: thajeztah/pgadmin4
     ports:
       - "5050:5050"
     links:
       - database
-  database:
-    image: postgres:10.1
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: secret_password
-    ports:
-      - "5432:5432"
-    volumes:
-      - ./database:/var/lib/mysql:rw

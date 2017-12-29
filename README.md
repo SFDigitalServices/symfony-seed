@@ -1,30 +1,36 @@
-# set up
-Install homebrew
-  [https://brew.sh]
 
-Install composer
-  `brew install composer`
+The purpose of this project is to speed up the bootstrapping of symfony projects.
 
-Install npm
-  `brew install npm`
+1. git clone git@github.com:SFDigitalServices/symfony-seed.git
+2. Rename the project directory from symfony-seed
+3. Create repo for new project and point git it  
+    `git remote set-url origin git@github.com:User/UserRepo.git`
 
-Install docker
-  [https://docs.docker.com/docker-for-mac/install/]
+# Installation
+* ### Install homebrew
+[https://brew.sh]
 
-npm install
+* ### Install composer
+`brew install composer`
 
-docker-compose up
+* ### Install npm
+`brew install npm`
 
-### compile assets once
- ./node_modules/.bin/encore dev
+* ### Install docker
+[https://docs.docker.com/docker-for-mac/install/]
 
-### recompile assets automatically when files changes
- ./node_modules/.bin/encore dev --watch
+* ### Download dependencies
+`npm dependencies` will run `npm install` and `composer install`
 
-### compile assets, but also minify & optimize them
- ./node_modules/.bin/encore production
+* ### Bring up the dev environment
+`npm start` will run `./node_modules/.bin/encore dev --watch` and `docker-compose up`
 
-run docker-compose ps to find out what port
+# Production deployment
+### Compile, minify, & optimize assets  
+`./node_modules/.bin/encore production`
+
+# Misc Notes
+run `docker-compose ps` to find out what port
 
 symfonyseed_database_1   docker-entrypoint.sh postgres   Up      0.0.0.0:32772->5432/tcp              
 symfonyseed_web_1        /entrypoint supervisord         Up      443/tcp, 0.0.0.0:32773->80/tcp, 9000/tcp
