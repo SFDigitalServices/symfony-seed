@@ -29,8 +29,8 @@ brew install php71 --with-postgresql
 `npm start` will run `./node_modules/.bin/encore dev --watch` and `docker-compose up`
 
 # Migrations
-create migration `php bin/console doctrine:migrations:diff`
-run migration `php bin/console doctrine:migrations:migrate`
+generate migrations `php bin/console doctrine:migrations:diff`
+apply migrations to db `php bin/console doctrine:migrations:migrate`
 
 # Production deployment
 ### Compile, minify, & optimize assets  
@@ -44,3 +44,6 @@ symfonyseed_web_1        /entrypoint supervisord         Up      443/tcp, 0.0.0.
 
 in this case, the web server can be accessed at port 32773.
 load the webapp at 127.0.0.1:32773
+
+# Documentation
+[symfony documentation https://symfony.com/doc/current/index.html]
