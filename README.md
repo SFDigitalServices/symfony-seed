@@ -10,6 +10,9 @@ The purpose of this project is to speed up the bootstrapping of symfony projects
 * ### Install homebrew
 [https://brew.sh]
 
+* ### Install PHP 7
+brew install php71 --with-postgresql
+
 * ### Install composer
 `brew install composer`
 
@@ -24,6 +27,10 @@ The purpose of this project is to speed up the bootstrapping of symfony projects
 
 * ### Bring up the dev environment
 `npm start` will run `./node_modules/.bin/encore dev --watch` and `docker-compose up`
+
+# Migrations
+create migration `php bin/console doctrine:migrations:diff`
+run migration `php bin/console doctrine:migrations:migrate`
 
 # Production deployment
 ### Compile, minify, & optimize assets  
