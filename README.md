@@ -27,6 +27,9 @@ or
 * ### Download dependencies
 `npm dependencies` will run `npm install` and `composer install`
 
+* ### Update environment variables
+Rename .env.dist to .env and make sure to update the values to match your environment
+
 * ### Bring up the dev environment
 `npm start` will run `./node_modules/.bin/encore dev --watch` and `docker-compose up`
 
