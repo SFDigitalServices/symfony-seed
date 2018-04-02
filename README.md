@@ -1,10 +1,10 @@
 
 The purpose of this project is to speed up the bootstrapping of symfony projects.
 
-1. git clone git@github.com:SFDigitalServices/symfony-seed.git
-2. Rename the project directory from symfony-seed
-3. Create repo for new project and point git it  
+1. git clone git@github.com:SFDigitalServices/symfony-seed.git new-proj-name
+2. Create repo for new project and point git it  
     `git remote set-url origin git@github.com:User/UserRepo.git`
+3. git push
 
 # Installation
 * ### Install homebrew
@@ -21,12 +21,17 @@ brew install php71 --with-postgresql
 
 * ### Install docker
 [https://docs.docker.com/docker-for-mac/install/]
+or  
+`brew cask install docker`
 
 * ### Download dependencies
 `npm dependencies` will run `npm install` and `composer install`
 
 * ### Bring up the dev environment
 `npm start` will run `./node_modules/.bin/encore dev --watch` and `docker-compose up`
+
+* ### Stop the dev environmnet
+`npm stop`
 
 # Migrations
 generate migrations `php bin/console doctrine:migrations:diff`
@@ -46,4 +51,5 @@ in this case, the web server can be accessed at port 32773.
 load the webapp at 127.0.0.1:32773
 
 # Documentation
-[symfony documentation https://symfony.com/doc/current/index.html]
+[symfony documentation](https://symfony.com/doc/current/index.html)  
+[doctrine orm guide](https://symfony.com/doc/current/doctrine.html)
