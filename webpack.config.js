@@ -1,5 +1,6 @@
 // webpack.config.js
 var Encore = require('@symfony/webpack-encore');
+let CopyWebpackPlugin = require('copy-webpack-plugin');
 
 Encore
     // the project directory where all compiled assets will be stored
@@ -8,8 +9,16 @@ Encore
     // the public path used by the web server to access the previous directory
     .setPublicPath('/build')
 
+    // copy everything in assets/images to build/images
+    .addPlugin(new CopyWebpackPlugin([
+        {
+            from: './assets/images',
+            to: 'images'
+        }
+    ]))
+
     // will create public/build/app.js and public/build/app.css
-    .addEntry('js/app', './assets/js/app.js')
+    .addEntry('app', './assets/js/app.js')
 
     // allow vue
     .enableVueLoader()
