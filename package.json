@@ -22,5 +22,7 @@
     "vue-template-compiler": "^2.5.16",
     "webpack-notifier": "^1.6.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "vue-router": "^3.0.1"
+  }
 }
